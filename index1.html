@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Book Store</title>
+  <style>
+    body { font-family: Arial; text-align: center; background: #f4f4f4; }
+    .container { display: none; }
+    .book { display: inline-block; margin: 15px; padding: 10px; background: white; }
+    img { width: 100px; height: 150px; }
+    input { padding: 8px; margin: 5px; }
+    button { padding: 8px; cursor: pointer; }
+  </style>
+</head>
+
+<body>
+
+<h1>Online Book Store</h1>
+
+<!-- LOGIN -->
+<div id="login" class="container" style="display:block;">
+  <h2>Login</h2>
+  <input id="loginUser" placeholder="Username"><br>
+  <input id="loginPass" type="password" placeholder="Password"><br>
+  <button onclick="login()">Login</button>
+  <p>New user? <a href="#" onclick="showRegister()">Register</a></p>
+  <p id="loginMsg"></p>
+</div>
+
+<!-- REGISTER -->
+<div id="register" class="container">
+  <h2>Register</h2>
+  <input id="regUser" placeholder="Username"><br>
+  <input id="regPass" type="password" placeholder="Password"><br>
+  <button onclick="register()">Register</button>
+  <p>Already have account? <a href="#" onclick="showLogin()">Login</a></p>
+  <p id="regMsg"></p>
+</div>
+
+<!-- BOOK STORE -->
+<div id="store" class="container">
+  <h2>Books</h2>
+  <button onclick="logout()">Logout</button>
+  <h3>Cart: <span id="cartCount">0</span></h3>
+
+  <div class="book">
+    <img src="https://covers.openlibrary.org/b/id/8225261-L.jpg">
+    <h3>Rich Dad Poor Dad</h3>
+    <p>₹399</p>
+    <button onclick="addToCart()">Add</button>
+  </div>
+
+  <div class="book">
+    <img src="https://covers.openlibrary.org/b/id/10523338-L.jpg">
+    <h3>Atomic Habits</h3>
+    <p>₹499</p>
+    <button onclick="addToCart()">Add</button>
+  </div>
+
+  <div class="book">
+    <img src="https://covers.openlibrary.org/b/id/11153207-L.jpg">
+    <h3>The Alchemist</h3>
+    <p>₹350</p>
+    <button onclick="addToCart()">Add</button>
+  </div>
+
+</div>
+
+<script>
+let cart = 0;
+
+// Show pages
+function showLogin() {
+  document.getElementById("login").style.display = "block";
+  document.getElementById("register").style.display = "none";
+  document.getElementById("store").style.display = "none";
+}
+
+function showRegister() {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("register").style.display = "block";
+}
+
+function showStore() {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("register").style.display = "none";
+  document.getElementById("store").style.display = "block";
+}
+
+// Register
+function register() {
+  let user = document.getElementById("regUser").value;
+  let pass = document.getElementById("regPass").value;
+
+  if(user && pass) {
+    localStorage.setItem("user", user);
+    localStorage.setItem("pass", pass);
+    document.getElementById("regMsg").innerText = "Registered!";
+  }
+}
+
+// Login
+function login() {
+  let user = document.getElementById("loginUser").value;
+  let pass = document.getElementById("loginPass").value;
+
+  let u = localStorage.getItem("user");
+  let p = localStorage.getItem("pass");
+
+  if(user === u && pass === p) {
+    showStore();
+  } else {
+    document.getElementById("loginMsg").innerText = "Wrong details";
+  }
+}
+
+// Cart
+function addToCart() {
+  cart++;
+  document.getElementById("cartCount").innerText = cart;
+}
+
+// Logout
+function logout() {
+  showLogin();
+}
+</script>
+
+</body>
+</html>

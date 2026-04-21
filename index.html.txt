@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Website</title>
+</head>
+<body>
+
+    <h1>My Website</h1>
+
+    <hr>
+
+    <!-- Navigation -->
+    <a href="#home">Home</a> |
+    <a href="#catalogue">Catalogue</a> |
+    <a href="#login">Login</a> |
+    <a href="#register">Registration</a>
+
+    <hr>
+
+    <!-- Home -->
+    <h2 id="home">Home</h2>
+    <p>Welcome to my website. This website is created using only HTML.</p>
+
+    <hr>
+
+    <!-- Catalogue -->
+    <h2 id="catalogue">Catalogue</h2>
+    <ul>
+        <li>Laptop</li>
+        <li>Mobile</li>
+        <li>Headphones</li>
+        <li>Smart Watch</li>
+    </ul>
+
+    <hr>
+
+    <!-- Login -->
+    <h2 id="login">Login</h2>
+    <form>
+        Username:<br>
+        <input type="text"><br><br>
+
+        Password:<br>
+        <input type="password"><br><br>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <hr>
+
+    <!-- Registration -->
+    <h2 id="register">Registration</h2>
+    <form>
+        Name:<br>
+        <input type="text"><br><br>
+
+        Email:<br>
+        <input type="email"><br><br>
+
+        Password:<br>
+        <input type="password"><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <hr>
+
+    <p>© 2025 Designed by Sushma</p>
+
+</body>
+</html>
